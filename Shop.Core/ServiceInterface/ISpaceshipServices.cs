@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Shop.Core.ServiceInterface
 {
-    public class ISpaceshipServices
+    public interface ISpaceshipServices
     {
 
         Task<Spaceship> Create(SpaceshipDto dto);

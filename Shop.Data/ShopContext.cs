@@ -13,7 +13,7 @@ namespace Shop.Data
         public ShopContext(DbContextOptions<ShopContext>options) :base(options)
         { }
 
-        public DbSet<Spaceship> SpaceShips { get; set; }
+        public DbSet<Spaceship> Spaceships { get; set; }
 
 
     }
