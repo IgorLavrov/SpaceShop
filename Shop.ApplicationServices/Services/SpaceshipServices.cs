@@ -1,4 +1,5 @@
-﻿using Shop.Core.Domain;
+﻿using Microsoft.EntityFrameworkCore;
+using Shop.Core.Domain;
 using Shop.Core.Dto;
 using Shop.Core.ServiceInterface;
 using Shop.Data;
@@ -43,6 +44,13 @@ namespace Shop.ApplicationServices.Services
             await _context.SaveChangesAsync();
 
             return spaceship;
+        }
+
+        public async Task<Spaceship> GetAsync(Guid id)
+        {
+            var result = await _context.Spaceships
+                .FirstOrDefaultAsync(x=> x.Id == id);
+            return result;
         }
     }
 }

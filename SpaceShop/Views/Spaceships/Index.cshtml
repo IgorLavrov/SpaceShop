@@ -2,8 +2,17 @@
 
 
 
+
 <div class="h1">
     Spaceships
+</div>
+
+@{
+    int rowNumber = 1;
+}
+
+<div>
+    <a asp-action="create" asp-controller="spaceships" class="btn btn-primary">Create</a>
 </div>
 
 
@@ -12,39 +21,30 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>
-                    Nr
-                </th>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Type
-                </th>
-                <th>
-                    Passangers
-                </th>
-                <th>
-                    Engine Power
-                </th>
+                <th scope="col">Nr</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Passangers</th>
+                <th scope="col">Engine Power</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-            </tr>
+            @foreach (var spaceship in Model)
+            {
+                <tr>
+                    <td>@rowNumber</td>
+                    <td>@spaceship.Name</td>
+                    <td>@spaceship.Type</td>
+                    <td>@spaceship.Passengers</td>
+                    <td>@spaceship.EnginePower</td>
+                    <td>
+                        <a asp-action="details" asp-controller="spaceships" asp-route-id="@spaceship.Id" class="btn btn-info">Details</a>
+                    </td>
+                </tr>
+
+                rowNumber += 1;
+            }
 
         </tbody>
-
     </table>
-
 </form>

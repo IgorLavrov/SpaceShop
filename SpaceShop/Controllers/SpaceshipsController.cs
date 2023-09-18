@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Shop.Core.Domain;
 using Shop.Core.Dto;
 using Shop.Core.ServiceInterface;
 using Shop.Data;
@@ -28,15 +30,11 @@ namespace SpaceShop.Controllers
                     EnginePower=x.EnginePower,
                     Passengers=x.Passengers
 
-
-
             });
                
-
-
-
             return View(result);
         }
+
 
         [HttpGet] public IActionResult Create()
         {
@@ -44,6 +42,7 @@ namespace SpaceShop.Controllers
         
         }
 
+        [HttpPost]
         public async Task<IActionResult> Create(SpaceshipsCreateViewModel vm) {
 
             var dto = new SpaceshipDto()
@@ -61,8 +60,41 @@ namespace SpaceShop.Controllers
 
             var result = await _spaceshipServices.Create(dto);
 
+
+
+
             return RedirectToAction(nameof(Index), vm);
         }
 
+
+        [HttpGet]
+        public async Task<IActionResult> Details(Guid id)
+        {
+            var spaceship = await _spaceshipServices.GetAsync(id);
+            
+            if (spaceship == null)
+            {
+                return NotFound();
+            }
+
+            var vm = new SpaceshipDetailsViewModel();
+
+            vm.Id = spaceship.Id;
+            vm.Name = spaceship.Name;
+            vm.Type = spaceship.Type;
+            vm.Crew = spaceship.Crew;
+            vm.Passengers = spaceship.Passengers;
+            vm.EnginePower = spaceship.EnginePower;
+            vm.Crew= spaceship.Crew;
+            vm.Company = spaceship.Company;
+            vm.CargoWeight = spaceship.CargoWeight;
+            vm.CreatedAt = spaceship.CreatedAt;
+            vm.ModifiedAt = spaceship.ModifiedAt;
+
+
+            return  View(vm);
+        }
+
     }
+
 }

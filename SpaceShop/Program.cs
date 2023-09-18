@@ -14,6 +14,8 @@ builder.Services.AddDbContext<ShopContext>(options=>options.UseSqlServer(builder
 
 builder.Services.AddScoped<ISpaceshipServices, SpaceshipServices>();
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
