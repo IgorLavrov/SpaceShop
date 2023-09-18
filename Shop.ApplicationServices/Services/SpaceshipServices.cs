@@ -63,12 +63,24 @@ namespace Shop.ApplicationServices.Services
                 ModifiedAt = DateTime.Now,
 
             };
-              _context.Spaceships.Update(domain);
+
+
+            _context.Spaceships.Update(domain);
             await _context.SaveChangesAsync();
 
             return domain;
         }
 
+        public async Task<Spaceship> Delete (Guid id)
+        {
+            var spaceshipId= await _context.Spaceships
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+
+            _context.Spaceships.Remove(spaceshipId);
+            await _context.SaveChangesAsync();
+            return spaceshipId;
+        }
 
         public async Task<Spaceship> GetAsync(Guid id)
         {
