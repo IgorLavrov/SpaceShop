@@ -36,14 +36,17 @@ namespace SpaceShop.Controllers
         }
 
 
-        [HttpGet] public IActionResult Create()
+        [HttpGet] 
+        public IActionResult Create()
         {
-            return View();
+            SpaceshipCreateUpdateViewModel spaceship = new SpaceshipCreateUpdateViewModel();
+
+            return View("CreateUpdate",spaceship);
         
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(SpaceshipsCreateViewModel vm) {
+        public async Task<IActionResult> Create(SpaceshipCreateUpdateViewModel vm) {
 
             var dto = new SpaceshipDto()
             {
@@ -93,6 +96,32 @@ namespace SpaceShop.Controllers
 
 
             return  View(vm);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult>Update(Guid id)
+        {
+
+            var spaceship=await _spaceshipServices.GetAsync(id);
+            if (spaceship == null) { 
+             return NotFound();
+            }
+            var vm=new SpaceshipCreateUpdateViewModel();
+            vm.Id = spaceship.Id;
+            vm.Name = spaceship.Name;
+            vm.Type = spaceship.Type;
+            vm.Crew = spaceship.Crew;
+            vm.Passengers = spaceship.Passengers;
+            vm.EnginePower = spaceship.EnginePower;
+            vm.Crew = spaceship.Crew;
+            vm.Company = spaceship.Company;
+            vm.CargoWeight = spaceship.CargoWeight;
+            vm.CreatedAt = spaceship.CreatedAt;
+            vm.ModifiedAt = spaceship.ModifiedAt;
+
+            return View("CreateUpdate",vm);
+
         }
 
     }
