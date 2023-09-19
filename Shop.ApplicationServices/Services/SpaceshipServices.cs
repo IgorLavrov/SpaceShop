@@ -47,7 +47,7 @@ namespace Shop.ApplicationServices.Services
         }
 
 
-        public async Task<Spaceship>Update(SpaceshipDto dto)
+    public async Task<Spaceship>Update(SpaceshipDto dto)
         {
             var domain = new Spaceship()
             {

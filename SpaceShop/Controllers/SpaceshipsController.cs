@@ -102,12 +102,14 @@ namespace SpaceShop.Controllers
         public async Task<IActionResult>DeleteConfirmation(Guid id)
         {
             var spaceshipId= await _spaceshipServices.GetAsync(id);
+
             if(spaceshipId == null)
             {
                 return RedirectToAction(nameof(Index));
             }
             return RedirectToAction(nameof(Index));
         }
+
 
 
         [HttpPost]
