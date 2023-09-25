@@ -24,7 +24,8 @@ namespace Shop.Core.Dto
         public DateTime ModifiedAt { get; set; }
 
         public List<IFormFile> Files { get; set; }
-        public IEnumerable<FileToApiDto> FileToApiDtos { get; set; }
+
+        public IEnumerable<FileToApiDto> Image { get; set; }
             = new List<FileToApiDto>();
     }
 

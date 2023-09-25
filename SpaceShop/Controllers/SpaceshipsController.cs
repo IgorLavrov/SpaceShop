@@ -124,14 +124,27 @@ namespace SpaceShop.Controllers
                 EnginePower = vm.EnginePower,
                 Crew = vm.Crew,
                 Company = vm.Company,
-                CargoWeight = vm.CargoWeight
+                CargoWeight = vm.CargoWeight,
+                Files = vm.Files,
+                Image = vm.FilesToApiViewModels.Select(x=>new FileToApiDto
+                {
+                    Id=x.id,
+                    ExistingFilePath=x.FilePath,
+                    SpaceshipId=x.SpaceshipId
+                }).ToArray()
+                
 
             };
 
+
             var result = await _spaceshipServices.Create(dto);
+         
+            if (result==null)
+            {
 
+                return RedirectToAction(nameof(Index));
 
-
+            }
 
             return RedirectToAction(nameof(Index), vm);
         }

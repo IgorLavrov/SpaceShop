@@ -14,6 +14,7 @@ builder.Services.AddDbContext<ShopContext>(options=>options.UseSqlServer(builder
 
 builder.Services.AddScoped<ISpaceshipServices, SpaceshipServices>();
 
+builder.Services.AddScoped<IFileServices, FilesServices>();// Mistakes: AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Shop.Core.ServiceInterface.ISpaceshipServices Lifetime
 
 
 var app = builder.Build();
