@@ -17,7 +17,7 @@ namespace SpaceShop.Controllers
             public RealEstateController
                 (
                     ShopContext context,
-                    RealEstatesServices realEstates
+                    IRealEstateServices realEstates
                 )
             {
                 _context = context;

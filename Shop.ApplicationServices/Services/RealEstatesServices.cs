@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Shop.ApplicationServices.Services
 {
-    public class RealEstatesServices:IRealEstateServices
+    public class RealEstatesServices: IRealEstateServices
    
         {
 
