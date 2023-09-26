@@ -160,6 +160,15 @@ namespace SpaceShop.Controllers
                 return NotFound();
             }
 
+            var images = await _context.FileToApis
+                .Where(x => x.SpaceshipId == id)
+                .Select(y => new FileToApiViewModel
+                {
+                    FilePath= y.ExistingFilePath,
+                    id = y.Id
+
+                }).ToArrayAsync();
+
             var vm = new SpaceshipDetailsViewModel();
 
             vm.Id = spaceship.Id;
@@ -173,7 +182,7 @@ namespace SpaceShop.Controllers
             vm.CargoWeight = spaceship.CargoWeight;
             vm.CreatedAt = spaceship.CreatedAt;
             vm.ModifiedAt = spaceship.ModifiedAt;
-
+            vm.FileToApiViewModels.AddRange(images);
 
             return  View(vm);
         }

@@ -72,10 +72,13 @@ else
                     <label class="custom-file-label">Choose File.....</label>
 </div>
 </div>
+        </div>
+
+
             @foreach (var images in Model.FilesToApiViewModels)
             {
                 <partial name="_Images" model="images"/>
-            }
+            } 
 
             <hr />
         @if (Model.Id.HasValue)

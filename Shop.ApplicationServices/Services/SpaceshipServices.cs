@@ -45,6 +45,7 @@ namespace Shop.ApplicationServices.Services
             spaceship.ModifiedAt = DateTime.Now;
             _fileServices.FilesToApi(dto, spaceship);
 
+
             await _context.Spaceships.AddAsync(spaceship);
             await _context.SaveChangesAsync();
 

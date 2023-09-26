@@ -13,7 +13,7 @@ namespace Shop.ApplicationServices.Services
 {
     public class FilesServices : IFileServices
     {
-        //{
+        
         private readonly IHostEnvironment _webHost;
         private readonly ShopContext _context;
 
