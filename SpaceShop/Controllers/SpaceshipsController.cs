@@ -101,7 +101,7 @@ namespace SpaceShop.Controllers
         [HttpPost]
         public async Task<IActionResult>DeleteConfirmation(Guid id)
         {
-            var spaceshipId= await _spaceshipServices.GetAsync(id);
+            var spaceshipId= await _spaceshipServices.Delete(id);
 
             if(spaceshipId == null)
             {
