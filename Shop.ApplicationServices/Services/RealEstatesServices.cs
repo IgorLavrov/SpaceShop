@@ -81,7 +81,7 @@ namespace Shop.ApplicationServices.Services
 
 
 
-        public async Task<RealEstate> DetailsAsync(Guid id)
+        public async Task<RealEstate> GetAsync(Guid id)
         {
             var result = await _context.RealEstates
                 .FirstOrDefaultAsync(x => x.Id == id);

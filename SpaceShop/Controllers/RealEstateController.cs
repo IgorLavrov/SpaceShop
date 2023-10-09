@@ -5,7 +5,7 @@ using Shop.Core.ServiceInterface;
 using Shop.Data;
 using Microsoft.EntityFrameworkCore;
 using SpaceShop.Models.RealEstate;
-using System.Data.Entity;
+
 using System.Net.NetworkInformation;
 
 namespace SpaceShop.Controllers
@@ -49,7 +49,7 @@ namespace SpaceShop.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(Guid id)
         {
-            var realEstate = await _realEstatesServices.DetailsAsync(id);
+            var realEstate = await _realEstatesServices.GetAsync(id);
 
             if (realEstate == null)
             {
@@ -129,7 +129,7 @@ namespace SpaceShop.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(Guid id)
         {
-            var realEstate = await _realEstatesServices.DetailsAsync(id);
+            var realEstate = await _realEstatesServices.GetAsync(id);
 
             if (realEstate == null)
             {
@@ -180,7 +180,7 @@ namespace SpaceShop.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var realEstate = await _realEstatesServices.DetailsAsync(id);
+            var realEstate = await _realEstatesServices.GetAsync(id);
 
             if (realEstate == null)
             {
