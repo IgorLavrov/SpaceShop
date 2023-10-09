@@ -2,7 +2,7 @@
 {
     public class FileToApiViewModel
     {
-        public Guid id { get; set; }
+        public Guid ImageId {  get; set; }
         public string FilePath { get; set; }
         public Guid SpaceshipId{ get; set; }
 

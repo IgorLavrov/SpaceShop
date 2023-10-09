@@ -15,7 +15,7 @@ namespace SpaceShop.Models.Spaceship
         public int CargoWeight { get; set; }
 
         public List<IFormFile> Files { get; set; }
-        public List<FileToApiViewModel> FilesToApiViewModels { get; set; }
+        public List<FileToApiViewModel> FileToApiViewModels { get; set; }
         =new List<FileToApiViewModel>();
         //only in database
         public DateTime CreatedAt { get; set; }
