@@ -17,6 +17,8 @@ namespace Shop.Data
         
         public DbSet<RealEstate> RealEstates { get; set; }
 
+
+        public DbSet<Kindergarten> Kindergartens { get; set; }
         public DbSet<FileToDatabase> FileToDatabases { get; set; }
 
 
