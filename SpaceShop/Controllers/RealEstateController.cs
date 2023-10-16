@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using SpaceShop.Models.RealEstate;
 
 using System.Net.NetworkInformation;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SpaceShop.Controllers
 {
@@ -15,17 +16,23 @@ namespace SpaceShop.Controllers
 
         private readonly ShopContext _context;
         private readonly IRealEstateServices _realEstatesServices;
+        private readonly IFileServices _fileServices;
 
 
 
         public RealEstateController
             (
                 ShopContext context,
-                IRealEstateServices realEstates
+                IRealEstateServices realEstates,
+                IFileServices fileservices
+       
+
+       
             )
         {
             _context = context;
             _realEstatesServices = realEstates;
+            _fileServices = fileservices;
         }
 
 
@@ -136,6 +143,18 @@ namespace SpaceShop.Controllers
                 return NotFound();
             }
 
+            var photos= await _context.FileToDatabases
+                .Where(x=> x.RealEstateId==id)
+                .Select(y=>new ImageToDatabaseViewModel
+                {
+                    RealEstateId=y.Id,
+                    ImageId=y.Id,
+                    ImageData=y.ImageData,
+                    ImageTitle=y.ImageTitle,
+                    Image=string.Format("data:image/gif;base64,{0}",Convert.ToBase64String(y.ImageData))
+
+            }).ToArrayAsync();
+
             var vm = new RealEstateCreateUpdateViewModel();
 
             vm.Id = realEstate.Id;
@@ -147,10 +166,12 @@ namespace SpaceShop.Controllers
             vm.BuiltInYear = realEstate.BuiltInYear;
             vm.CreatedAt = realEstate.CreatedAt;
             vm.UpdatedAt = realEstate.UpdatedAt;
+            vm.Image.AddRange(photos);
 
 
             return View("CreateUpdate", vm);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Update(RealEstateCreateUpdateViewModel vm)
@@ -166,8 +187,18 @@ namespace SpaceShop.Controllers
             dto.BuiltInYear = vm.BuiltInYear;
             dto.CreatedAt = vm.CreatedAt;
             dto.UpdatedAt = vm.UpdatedAt;
+            dto.Files = vm.Files;
+            dto.Image = vm.Image.Select(x => new FileToDatabaseDto
+            {
+                Id = x.ImageId,
+                ImageData = x.ImageData,
+                ImageTitle = x.ImageTitle,
+                RealEstateID = x.RealEstateId
 
-            var result = await _realEstatesServices.Update(dto);
+            }).ToArray();
+           
+
+        var result = await _realEstatesServices.Update(dto);
 
             if (result == null)
             {
@@ -176,6 +207,7 @@ namespace SpaceShop.Controllers
 
             return RedirectToAction(nameof(Index), vm);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Delete(Guid id)
@@ -186,6 +218,17 @@ namespace SpaceShop.Controllers
             {
                 return NotFound();
             }
+            var photos = await _context.FileToDatabases
+                .Where(x => x.RealEstateId == id)
+                .Select(y => new ImageToDatabaseViewModel
+                {
+                    RealEstateId = y.Id,
+                    ImageId = y.Id,
+                    ImageData = y.ImageData,
+                    ImageTitle = y.ImageTitle,
+                    Image = string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(y.ImageData))
+
+                }).ToArrayAsync();
 
             var vm = new RealEstateDeleteViewModel();
 
@@ -198,9 +241,13 @@ namespace SpaceShop.Controllers
             vm.BuiltInYear = realEstate.BuiltInYear;
             vm.CreatedAt = realEstate.CreatedAt;
             vm.UpdatedAt = realEstate.UpdatedAt;
+            vm.ImageToDatabase.AddRange(photos);
+
 
             return View(vm);
+
         }
+
 
         [HttpPost]
         public async Task<IActionResult> DeleteConfirmation(Guid id)
@@ -215,8 +262,48 @@ namespace SpaceShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        public async Task <IActionResult>RemoveImage(ImageToDatabaseViewModel file)
+        {
+            var dto = new FileToDatabaseDto()
+            {
+               
+                Id=file.ImageId
+            };
+
+            var image=await _fileServices.RemoveImageFromDatabase(dto);
 
 
+            if (image == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction(nameof(Index));
+
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveImages(ImageToDatabaseViewModel file)
+        {
+            
+            var dto = new FileToDatabaseDto()
+           
+            {
+                Id = file.ImageId
+            };
+
+            var image = await _fileServices.RemoveImageFromDatabase(dto);
+
+
+            if (image == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }
+// teha meetod ,mis kustutab mitu piltu korraga ara
 

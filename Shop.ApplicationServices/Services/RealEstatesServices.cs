@@ -46,7 +46,6 @@ namespace Shop.ApplicationServices.Services
                 _fileServices.UploadFilesToDatabase(dto, realEstate);
             }
             
-
             await _context.RealEstates.AddAsync(realEstate);
             await _context.SaveChangesAsync();
 
@@ -67,13 +66,16 @@ namespace Shop.ApplicationServices.Services
             realEstate.CreatedAt = dto.CreatedAt;
             realEstate.UpdatedAt = DateTime.Now;
 
+            if (dto.Files != null)
+            {
+                _fileServices.UploadFilesToDatabase(dto,realEstate);
+            }
+
             _context.RealEstates.Update(realEstate);
             await _context.SaveChangesAsync();
 
             return realEstate;
         }
-
-
 
 
         public async Task<RealEstate> GetAsync(Guid id)
@@ -88,12 +90,29 @@ namespace Shop.ApplicationServices.Services
         public async Task<RealEstate> Delete(Guid id)
         {
             var result = await _context.RealEstates
-                .FirstOrDefaultAsync(x => x.Id == id);
+              .FirstOrDefaultAsync(x => x.Id == id);
 
+            var photos = await _context.FileToDatabases
+                .Where(x => x.RealEstateId == id)
+                .Select(y => new FileToDatabaseDto
+                {
+                    Id = y.Id,
+                    ImageTitle = y.ImageTitle,
+                    RealEstateID= y.RealEstateId
+                })
+                .ToArrayAsync();
+
+            await _fileServices.RemoveImagesFromDatabase(photos);
             _context.RealEstates.Remove(result);
             await _context.SaveChangesAsync();
 
+           
+
             return result;
         }
+
+
+
     }
+
     }

@@ -70,7 +70,10 @@ else
 
         @foreach(var images in Model.Image){
             <partial name="_Images" model="images" />
+            <input asp-action="removeImage" asp-controller="realEstate" asp-route-imageid="@images.ImageId" type="submit" class="btn-primary btn-danger" value="Remove Image"/>
         }
+
+       
         <hr />
         @if (Model.Id.HasValue)
         {

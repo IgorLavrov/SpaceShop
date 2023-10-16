@@ -132,10 +132,6 @@ namespace Shop.ApplicationServices.Services
         }
 
 
-
-
-
-
         public async Task<Kindergarten> GetAsync(Guid id)
         {
             var result = await _context.Kindergartens
