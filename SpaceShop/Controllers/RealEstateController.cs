@@ -284,7 +284,7 @@ namespace SpaceShop.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> RemoveImages(ImageToDatabaseViewModel file)
+        public async Task<IActionResult>RemoveImages(ImageToDatabaseViewModel file)
         {
             
             var dto = new FileToDatabaseDto()
