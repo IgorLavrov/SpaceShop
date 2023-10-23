@@ -15,16 +15,19 @@ namespace Shop.ApplicationServices.Services
     {
 
         private readonly ShopContext _context;
+       
         private readonly IFileServices _fileServices;
 
         public SpaceshipServices
             (
              ShopContext contex
+            
 , IFileServices fileServices
 
             )
         {
             _context = contex;
+           
             _fileServices = fileServices;
         }
 

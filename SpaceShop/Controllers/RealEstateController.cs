@@ -284,23 +284,35 @@ namespace SpaceShop.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult>RemoveImages(ImageToDatabaseViewModel file)
+        public async Task<IActionResult>RemoveImages(Guid id)
         {
-            
-            var dto = new FileToDatabaseDto()
-           
+
+            var realEstate = await _realEstatesServices.GetAsync(id);
+
+            if (realEstate == null)
             {
-                Id = file.ImageId
-            };
-
-            var image = await _fileServices.RemoveImageFromDatabase(dto);
-
-
-            if (image == null)
-            {
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            return RedirectToAction(nameof(Index));
+            var photos = await _context.FileToDatabases
+                .Where(x => x.RealEstateId == id)
+                .Select(y => new ImageToDatabaseViewModel
+                {
+                    RealEstateId = y.Id,
+                    ImageId = y.Id,
+                    ImageData = y.ImageData,
+                    ImageTitle = y.ImageTitle,
+                    Image = string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(y.ImageData))
+
+                }).ToArrayAsync();
+
+            var vm = new RealEstateDeleteViewModel();
+
+          
+            vm.ImageToDatabase.AddRange(photos);
+
+
+            return View(vm);
+
 
         }
     }
