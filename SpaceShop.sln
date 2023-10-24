@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Core", "Shop.Core\Shop
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.ApplicationServices", "Shop.ApplicationServices\Shop.ApplicationServices.csproj", "{CDF80468-B626-4370-B8B6-0CC35AB891F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.Spaceship.Test", "Shop.Spaceship.Test\Shop.Spaceship.Test.csproj", "{7034774B-180D-4C35-A5B8-147A5D9DCBBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Spaceship.Test", "Shop.Spaceship.Test\Shop.Spaceship.Test.csproj", "{7034774B-180D-4C35-A5B8-147A5D9DCBBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.RealEstate.Test", "Shop.RealEstate.Test\Shop.RealEstate.Test.csproj", "{3EC4F163-E5BE-4327-B8F4-13D647F51413}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{7034774B-180D-4C35-A5B8-147A5D9DCBBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7034774B-180D-4C35-A5B8-147A5D9DCBBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7034774B-180D-4C35-A5B8-147A5D9DCBBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EC4F163-E5BE-4327-B8F4-13D647F51413}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EC4F163-E5BE-4327-B8F4-13D647F51413}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EC4F163-E5BE-4327-B8F4-13D647F51413}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EC4F163-E5BE-4327-B8F4-13D647F51413}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

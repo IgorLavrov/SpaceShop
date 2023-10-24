@@ -8,7 +8,7 @@ using Shop.Data;
 using Shop.Spaceship.Test.Macros;
 using Shop.Spaceship.Test.Mock;
 
-namespace Shop.SpaceshipTest
+namespace Shop.Spaceship.Test
 {
     public abstract class TestBase
     {
