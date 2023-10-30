@@ -60,16 +60,11 @@ namespace Shop.RealEstate.Test
 
 
 
-            //SpaceshipDto spaceship = new();
-
-            //spaceship.Id = new Guid("9f0674c4-1ddc-4415-9ea2-a0502ac4913b");
-            //Guid id2 = Guid.Parse("9f0674c4-1ddc-4415-9ea2-a0502ac4913b");
-
 
             await Svc<IRealEstateServices>().GetAsync(getGuid);
 
 
-            //Assert.Equal(spaceship.Id , id2);
+       
             Assert.Equal(databaseGuid, getGuid);
 
 
@@ -77,18 +72,15 @@ namespace Shop.RealEstate.Test
 
         [Fact]
 
-        public async Task Should_DeleteByIdRealEstate_WhenDeleteSpaceship()
+        public async Task Should_DeleteByIdRealEstate_WhenDeleteRealEstate()
         {
 
             //Arrange
             RealEstateDto realestate = MockRealestateData();
 
-
-
             //Act
             var createdrealestate = await Svc<IRealEstateServices>().Create(realestate);
             var result = await Svc<IRealEstateServices>().Delete((Guid)createdrealestate.Id);
-
 
             Assert.Equal(createdrealestate, result);
 
@@ -97,7 +89,7 @@ namespace Shop.RealEstate.Test
 
         [Fact]
 
-        public async Task ShouldNot_DeleteByIdRealestae_WhenDidNotDeleteSpaceship()
+        public async Task ShouldNot_DeleteByIdRealestate_WhenDidNotDeleteRealestate()
         {
             RealEstateDto realestate = MockRealestateData();
 
@@ -144,7 +136,7 @@ namespace Shop.RealEstate.Test
 
 
         [Fact]
-        public async Task Should_updateRealEstate_WhenUpdatedtaversion()
+        public async Task Should_updateRealEstate_WhenUpdatedDataversion()
         {
             RealEstateDto dto = MockRealestateData();
             var createdrealestate = await Svc<IRealEstateServices>().Create(dto);
@@ -160,7 +152,7 @@ namespace Shop.RealEstate.Test
         }
 
         [Fact]
-        public async Task ShouldNot_UpdateSpaceship_WhenNotUpdateData()
+        public async Task ShouldNot_UpdateRealestate_WhenNotUpdateData()
         {
             RealEstateDto dto = MockRealestateData();
             await Svc<IRealEstateServices>().Create(dto);
@@ -173,6 +165,7 @@ namespace Shop.RealEstate.Test
             Assert.Equal(dto.Id, nullId);
 
         }
+
 
         private RealEstateDto MockNullEstate()
         {

@@ -150,7 +150,7 @@ namespace Shop.Spaceship.Test
 
 
         [Fact]
-        public async Task Should_updateSpaceship_WhenUpdatedtaversion()
+        public async Task Should_updateSpaceship_WhenUpdatedDataversion()
         {
             SpaceshipDto dto=MockSpaceshipData();
             var createdSpaceship=await Svc<ISpaceshipServices>().Create(dto);
