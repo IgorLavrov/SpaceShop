@@ -57,14 +57,7 @@ namespace Shop.RealEstate.Test
 
             Guid databaseGuid = Guid.Parse("9f0674c4-1ddc-4415-9ea2-a0502ac4913b");
             Guid getGuid = Guid.Parse("9f0674c4-1ddc-4415-9ea2-a0502ac4913b");
-
-
-
-
             await Svc<IRealEstateServices>().GetAsync(getGuid);
-
-
-       
             Assert.Equal(databaseGuid, getGuid);
 
 
@@ -77,11 +70,9 @@ namespace Shop.RealEstate.Test
 
             //Arrange
             RealEstateDto realestate = MockRealestateData();
-
             //Act
             var createdrealestate = await Svc<IRealEstateServices>().Create(realestate);
             var result = await Svc<IRealEstateServices>().Delete((Guid)createdrealestate.Id);
-
             Assert.Equal(createdrealestate, result);
 
         }
@@ -92,10 +83,8 @@ namespace Shop.RealEstate.Test
         public async Task ShouldNot_DeleteByIdRealestate_WhenDidNotDeleteRealestate()
         {
             RealEstateDto realestate = MockRealestateData();
-
             var addrealestate = await Svc<IRealEstateServices>().Create(realestate);
             var addrealestate2 = await Svc<IRealEstateServices>().Create(realestate);
-
             var result = await Svc<IRealEstateServices>().Delete((Guid)addrealestate2.Id);
             Assert.NotEqual(addrealestate.Id, result.Id);
 

@@ -77,6 +77,7 @@ namespace Shop.Kindergarten.Test
             Assert.NotEqual(createdkindergarten.Id, result.Id);
 
         }
+
         [Fact]
         public async Task Should_UpdateKindergarten_WhenUpdateData()
         {
