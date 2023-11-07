@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SpaceShop.styles.css" asp-append-version="true" />
+
 </head>
 <body>
     <header>
@@ -34,6 +35,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Kindergarten" asp-action="Index">Kindergarten</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="OpenWeathers" asp-action="Index">OpenWeathers</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -45,6 +49,7 @@
         </main>
     </div>
 
+    
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023  Copywright SpaceShop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy </a>
@@ -53,6 +58,7 @@
             <a asp-area="" asp-controller="Home" asp-action="Kindergarten">Kindergarten </a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
