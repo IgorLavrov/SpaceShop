@@ -8,7 +8,7 @@ namespace Shop.Core.Dto.OpenWeatherDto
         [JsonPropertyName("1h")]
         public double double_1h { get; set; }
 
-        [JsonPropertyName("1h")]
+        [JsonPropertyName("3h")]
        public  double double_3h { get; set; }
     }
 }

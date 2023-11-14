@@ -1,0 +1,47 @@
+﻿@model SpaceShop.Models.OpenWeathers.OpenWeatherViewModel
+
+<div class="Container">
+
+    <h2> Forecast for the selected city </h2>
+    <h2>@Html.DisplayFor(model=>model.City)</h2>
+    <hr/>
+
+    <div class="form-group row">
+        <label asp-for="Temperature" class="col-sm-2 col-form-label">
+        </label>
+        @Html.DisplayFor(model=>model.Temperature) °C
+    </div>
+    <div class="form-group row">
+        <label asp-for="FeelLikeTemperature" class="col-sm-2 col-form-label">
+        </label>
+        @Html.DisplayFor(model=>model.FeelLikeTemperature) °C
+    </div>
+    <div class="form-group row">
+        <label asp-for="WeatherDesciption" class="col-sm-2 col-form-label">
+        </label>
+        @Html.DisplayFor(model=>model.WeatherDesciption) 
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="TemperaturePressure" class="col-sm-2 col-form-label">
+        </label>
+        @Html.DisplayFor(model=>model.TemperaturePressure) P
+    </div>
+    <div class="form-group row">
+        <label asp-for="Humidity" class="col-sm-2 col-form-label">
+        </label>
+        @Html.DisplayFor(model=>model.Humidity) %
+    </div>
+    <div class="form-group row">
+        <label asp-for="WindSpeed" class="col-sm-2 col-form-label">
+        </label>
+        @Html.DisplayFor(model=>model.WindSpeed) m/s
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="WindSpeed" class="col-sm-2 col-form-label">
+        </label>
+        @Html.DisplayFor(model=>model.WindSpeed) m/s
+    </div>
+
+</div>
