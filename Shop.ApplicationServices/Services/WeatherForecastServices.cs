@@ -16,8 +16,8 @@ namespace Shop.ApplicationServices.Services
 
         public async Task <OpenWeatherResultDto> OpenWeatherResult(OpenWeatherResultDto dto)
         {
-           
-            string idOpenweather = "api key";
+
+            string idOpenweather = "Api key"; 
             string url = $"https://api.openweathermap.org/data/2.5/weather?q={dto.City}&units=metric&appid={idOpenweather}";
 
 
@@ -27,10 +27,11 @@ namespace Shop.ApplicationServices.Services
                 string json = client.DownloadString(url);
                 OpenedWeatherResponseRootDto weatherResult = new JavaScriptSerializer().Deserialize<OpenedWeatherResponseRootDto>(json);
                 dto.City = weatherResult.name;
-                dto.Temperature = weatherResult.main.Temperature;
-                dto.FeelLikeTemperature = weatherResult.main.FeelsLikeTemperature;
-                dto.TemperaturePressure = weatherResult.main.Pressure;
-                dto.WindSpeed = weatherResult.wind.speed;
+                dto.Temperature = weatherResult.Main.Temp;
+                dto.Humidity = weatherResult.Main.humidity;
+                dto.TemperaturePressure = weatherResult.Main.Pressure;
+                dto.FeelLikeTemperature = weatherResult.Main.Feels_Like;
+                dto.Windspeed = weatherResult.Wind.Speed;
                 dto.WeatherDesciption = weatherResult.Weather[0].description;
 
             

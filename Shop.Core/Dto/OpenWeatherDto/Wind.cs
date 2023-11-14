@@ -5,9 +5,9 @@ namespace Shop.Core.Dto.OpenWeatherDto
     public class Wind
     {
         [JsonPropertyName("speed")]
-        public double speed { get; set; }
+        public double Speed { get; set; }
 
         [JsonPropertyName("deg")]
-        public double degree { get; set; }
+        public double deg { get; set; }
     }
 }

@@ -21,12 +21,14 @@ namespace Shop.Core.Dto.OpenWeatherDto
         public string @Base { get; set; }
 
         [JsonPropertyName("main")]
-        public Main main { get; set; }
+        public Main Main { get; set; }
 
         [JsonPropertyName("visibility")]
         public int Visibility { get; set; }
+        
         [JsonPropertyName("wind")]
-        public Wind wind { get; set; }
+        public Wind Wind { get; set; }
+
         [JsonPropertyName("clouds")]
         public Clouds Clouds { get; set; }
         [JsonPropertyName("dt")]

@@ -28,7 +28,7 @@
         public int Humidity { get; set; }
 
         public int Visibility { get; set; }
-        public double WindSpeed { get; set; }
+        public double Windspeed { get; set; }
 
         public double WindDeg { get; set; }
 
