@@ -15,7 +15,7 @@ namespace Shop.ApplicationServices.Services
     {
 
         string number =  "";
-        string idAccuweather = "";
+        string idAccuweather = " ";
 
         public async Task<AccuWeatherResultDto> AccuWeatherResult (AccuWeatherResultDto dto)
         {
@@ -43,6 +43,7 @@ namespace Shop.ApplicationServices.Services
                 dto.AccuCitysKey = number;
                 dto.DailyForecastDate = AccuWeatherResult2.DailyForecasts[0].Date;
                 dto.HeadlinesText = AccuWeatherResult2.Headline.Text;
+                dto.HeadlinesLink = AccuWeatherResult2.Headline.Link;
                 dto.HeadlinesCategory = AccuWeatherResult2.Headline.Category;
                 dto.DailyForecastEpochDate = AccuWeatherResult2.DailyForecasts[0].EpochDate;
                 dto.DailyForecastDaysHasPrecipitation = AccuWeatherResult2.DailyForecasts[0].Day.HasPrecipitation;

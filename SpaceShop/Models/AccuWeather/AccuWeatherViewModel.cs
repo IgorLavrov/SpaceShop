@@ -11,7 +11,6 @@ namespace SpaceShop.Models.AccuWeather
         public class AccuWeatherViewModel
     {
 
-            public string AccuCitysKey { get; set; }
 
             public string City { get; set; }
 

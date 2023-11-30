@@ -49,12 +49,14 @@ namespace SpaceShop.Controllers
             _accuweatherServices.AccuWeatherResult(dto);
             AccuWeatherViewModel vm2 = new();
 
-            vm2.AccuCitysKey= dto.AccuCitysKey;
+            
             vm2.DailyForecastDate= dto.DailyForecastDate;
             vm2.DailyForecastDaysHasPrecipitation=dto.DailyForecastDaysHasPrecipitation;
             vm2.DailyForecastTemperaturesMinimumsUnit = dto.DailyForecastTemperaturesMinimumsUnit;
             vm2.DailyForecastEpochDate= dto.DailyForecastEpochDate;
             vm2.HeadlinesText= dto.HeadlinesText;
+            vm2.HeadlinesLink= dto.HeadlinesLink;
+
             
             return View(vm2);
 

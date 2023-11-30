@@ -10,7 +10,7 @@ namespace Shop.Core.Dto.Accuweather
     public class AccuWeatherResultDto
     {
 
-        public string AccuCitysKey { get; set; }
+       
 
         public string City { get; set; }
 
