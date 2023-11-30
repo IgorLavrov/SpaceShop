@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Spaceship.Test", "Shop
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.RealEstate.Test", "Shop.RealEstate.Test\Shop.RealEstate.Test.csproj", "{3EC4F163-E5BE-4327-B8F4-13D647F51413}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.Kindergarten.Test", "Shop.Kindergarten.Test\Shop.Kindergarten.Test.csproj", "{810ADE71-8D4A-4B08-9BC3-28B4BD7C1097}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Kindergarten.Test", "Shop.Kindergarten.Test\Shop.Kindergarten.Test.csproj", "{810ADE71-8D4A-4B08-9BC3-28B4BD7C1097}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

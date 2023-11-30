@@ -1,0 +1,53 @@
+﻿@model SpaceShop.Models.ChuckNorris.ChuckNorrisViewModel
+
+<div class="Container">
+
+    <h2> Chuck Norris jokes </h2>
+
+    <hr />
+    <dl class="row">
+
+        <div class="form-group row">
+            <label asp-for="Categories" class="col-sm-2 col-form-label">
+            </label>
+            @Html.DisplayFor(model=>model.Categories)
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="CreatedAt" class="col-sm-2 col-form-label">
+            </label>
+            @Html.DisplayFor(model=>model.CreatedAt)
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="UpdatedAt" class="col-sm-2 col-form-label">
+            </label>
+            @Html.DisplayFor(model=>model.UpdatedAt)
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Id" class="col-sm-2 col-form-label">
+            </label>
+            @Html.DisplayFor(model=>model.Id)
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Url" class="col-sm-2 col-form-label">
+            </label>
+            @Html.DisplayFor(model=>model.Url)
+        </div>
+        <div class="form-group row">
+            <label asp-for="IconUrl" class="col-sm-2 col-form-label">
+            </label>
+            @Html.DisplayFor(model=>model.IconUrl)
+        </div>
+        <div class="form-group row">
+            <label asp-for="Value" class="col-sm-2 col-form-label">
+            </label>
+            @Html.DisplayFor(model=>model.Value)
+        </div>
+        <a asp-action="Search" asp-controller="ChuckNorris" class="btn btn-secondary">New Joke</a>
+        <a asp-action="Index" asp-controller="Home" class="btn btn-danger">Index</a>
+    </dl>
+
+</div>

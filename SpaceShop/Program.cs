@@ -20,6 +20,9 @@ builder.Services.AddScoped<IFileServices, FilesServices>();// Mistakes: Aggregat
 builder.Services.AddScoped<IRealEstateServices, RealEstatesServices>();
 builder.Services.AddScoped<IKindergartenServices, KindergartenServices>();
 builder.Services.AddScoped<IWeatherForecastServices, WeatherForecastServices>();
+builder.Services.AddScoped<IChuckNorrisServices, ChuckNorrisServices>();
+builder.Services.AddScoped<ICocktailServices, CocktailServices>();
+builder.Services.AddScoped<IAccuWeatherServices,AccuWeatherServices>();
 
 var app = builder.Build();
 

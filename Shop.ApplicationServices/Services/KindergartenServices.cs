@@ -51,34 +51,34 @@ namespace Shop.ApplicationServices.Services
 
         //public async Task<Kindergarten> Update(KindergartenDto dto)
         //{
-            
-           
-        //    //    var existingKindergarten = await _context.Kindergartens.FindAsync(dto.Id);
 
-        //    //    if (existingKindergarten == null)
-        //    //    {
-        //    //        // Handle not found case, e.g., return null or throw an exception
-        //    //        return null;
-        //    //    }
 
-        //    //    // Check for concurrency conflict by comparing ModifiedAt timestamps
-        //    //    if (existingKindergarten.ModifiedAt > dto.ModifiedAt)
-        //    //    {
-        //    //        // Handle the concurrency conflict, e.g., return null or throw an exception
-        //    //        return null;
-        //    //    }
+        //    var existingKindergarten = await _context.Kindergartens.FindAsync(dto.Id);
 
-        //    //    // Update properties of the entity
-        //    //    existingKindergarten.GroupName = dto.GroupName;
-        //    //    existingKindergarten.KindergartenName = dto.KindergartenName;
-        //    //    existingKindergarten.Teacher = dto.Teacher;
-        //    //    existingKindergarten.ChildrenCount = dto.ChildrenCount;
-        //    //    existingKindergarten.ModifiedAt = DateTime.Now;
+        //    if (existingKindergarten == null)
+        //    {
+        //        // Handle not found case, e.g., return null or throw an exception
+        //        return null;
+        //    }
 
-        //    //    await _context.SaveChangesAsync();
+        //    // Check for concurrency conflict by comparing ModifiedAt timestamps
+        //    if (existingKindergarten.ModifiedAt > dto.ModifiedAt)
+        //    {
+        //        // Handle the concurrency conflict, e.g., return null or throw an exception
+        //        return null;
+        //    }
 
-        //    //    return existingKindergarten;
-        //    //}
+        //    // Update properties of the entity
+        //    existingKindergarten.GroupName = dto.GroupName;
+        //    existingKindergarten.KindergartenName = dto.KindergartenName;
+        //    existingKindergarten.Teacher = dto.Teacher;
+        //    existingKindergarten.ChildrenCount = dto.ChildrenCount;
+        //    existingKindergarten.ModifiedAt = DateTime.Now;
+
+        //    await _context.SaveChangesAsync();
+
+        //    return existingKindergarten;
+        //}
 
 
 
