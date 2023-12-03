@@ -14,8 +14,8 @@ namespace Shop.ApplicationServices.Services
     public class AccuWeatherServices : IAccuWeatherServices
     {
 
-        string number =  "";
-        string idAccuweather = " ";
+        string number ="";
+        string idAccuweather = "";
 
         public async Task<AccuWeatherResultDto> AccuWeatherResult (AccuWeatherResultDto dto)
         {
@@ -40,14 +40,32 @@ namespace Shop.ApplicationServices.Services
 
                 string json1 = tclient.DownloadString(url2);
                 AccuWeatherResponseRootDto AccuWeatherResult2 = new JavaScriptSerializer().Deserialize<AccuWeatherResponseRootDto>(json1);
-                dto.AccuCitysKey = number;
+
                 dto.DailyForecastDate = AccuWeatherResult2.DailyForecasts[0].Date;
                 dto.HeadlinesText = AccuWeatherResult2.Headline.Text;
                 dto.HeadlinesLink = AccuWeatherResult2.Headline.Link;
                 dto.HeadlinesCategory = AccuWeatherResult2.Headline.Category;
                 dto.DailyForecastEpochDate = AccuWeatherResult2.DailyForecasts[0].EpochDate;
                 dto.DailyForecastDaysHasPrecipitation = AccuWeatherResult2.DailyForecasts[0].Day.HasPrecipitation;
-                
+                dto.DailyForecastDaysIcon = AccuWeatherResult2.DailyForecasts[0].Day.Icon;
+                dto.DailyForecastDaysIconPhrase = AccuWeatherResult2.DailyForecasts[0].Day.IconPhrase;
+                dto.DailyForecastNightsHasPrecipitation = AccuWeatherResult2.DailyForecasts[0].Night.HasPrecipitation;
+                dto.DailyForecastNightsIcon = AccuWeatherResult2.DailyForecasts[0].Night.Icon;
+                dto.DailyForecastNightsIconPhrase = AccuWeatherResult2.DailyForecasts[0].Night.IconPhrase;
+                dto.DailyForecastSources = AccuWeatherResult2.DailyForecasts[0].Sources[0];
+                dto.DailyForecastTemperaturesMaximumsUnit = AccuWeatherResult2.DailyForecasts[0].Temperature.Maximum.Unit;
+                dto.DailyForecastTemperaturesMaximumsValue = AccuWeatherResult2.DailyForecasts[0].Temperature.Maximum.Value;
+                dto.DailyForecastTemperaturesMinimumsUnit = AccuWeatherResult2.DailyForecasts[0].Temperature.Minimum.Unit;
+                dto.DailyForecastTemperaturesMinimumsUnitType = AccuWeatherResult2.DailyForecasts[0].Temperature.Minimum.UnitType;
+
+                dto.HeadlinesEffectiveEpochDate = AccuWeatherResult2.Headline.EffectiveEpochDate;
+                dto.HeadlinesEndDate= AccuWeatherResult2.Headline.EndDate;
+                dto.HeadlinesSeverity = AccuWeatherResult2.Headline.Severity;
+                dto.DailyForecastTemperaturesMaximumsUnitType = AccuWeatherResult2.DailyForecasts[0].Temperature.Maximum.UnitType;
+                dto.DailyForecastNightsHasPrecipitation = AccuWeatherResult2.DailyForecasts[0].Night.HasPrecipitation;
+                dto.DailyForecastNightsIconPhrase = AccuWeatherResult2.DailyForecasts[0].Night.IconPhrase;
+                dto.DailyForecastLink = AccuWeatherResult2.DailyForecasts[0].MobileLink;
+                dto.HeadlinesEffectiveDate = AccuWeatherResult2.Headline.EffectiveDate;               
             }
 
 

@@ -18,7 +18,7 @@ namespace SpaceShop.Models.AccuWeather
 
             public string HeadlinesEffectiveEpochDate { get; set; }
 
-            public string HeadlinesSeverity { get; set; }
+            public int HeadlinesSeverity { get; set; }
 
             public string HeadlinesText { get; set; }
 
@@ -51,7 +51,7 @@ namespace SpaceShop.Models.AccuWeather
             public string DailyForecastDaysIconPhrase { get; set; }
 
 
-            public string DailyForecastDaysHasPrecipitation { get; set; }
+            public bool DailyForecastDaysHasPrecipitation { get; set; }
 
 
             public string DailyForecastDaysPrecipitationType { get; set; }

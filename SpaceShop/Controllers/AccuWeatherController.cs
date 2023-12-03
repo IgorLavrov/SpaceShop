@@ -51,11 +51,27 @@ namespace SpaceShop.Controllers
 
             
             vm2.DailyForecastDate= dto.DailyForecastDate;
-            vm2.DailyForecastDaysHasPrecipitation=dto.DailyForecastDaysHasPrecipitation;
+            vm2.DailyForecastDaysHasPrecipitation=dto.DailyForecastDaysHasPrecipitation ;
             vm2.DailyForecastTemperaturesMinimumsUnit = dto.DailyForecastTemperaturesMinimumsUnit;
             vm2.DailyForecastEpochDate= dto.DailyForecastEpochDate;
             vm2.HeadlinesText= dto.HeadlinesText;
             vm2.HeadlinesLink= dto.HeadlinesLink;
+            vm2.HeadlinesCategory= dto.HeadlinesCategory;
+            vm2.HeadlinesEffectiveDate= dto.HeadlinesEffectiveDate;
+            vm2.HeadlinesEndDate= dto.HeadlinesEndDate;
+            vm2.HeadlinesSeverity= dto.HeadlinesSeverity;
+            vm2.DailyForecastNightsIcon= dto.DailyForecastNightsIcon;
+            vm2.DailyForecastSources= dto.DailyForecastSources;
+            vm2.DailyForecastDaysIconPhrase= dto.DailyForecastDaysIconPhrase;
+            vm2.DailyForecastDaysIcon= dto.DailyForecastDaysIcon;
+            vm2.DailyForecastNightsIconPhrase= dto.DailyForecastNightsIconPhrase;
+            vm2.DailyForecastNightsHasPrecipitation = dto.DailyForecastNightsHasPrecipitation;
+            vm2.DailyForecastNightsIconPhrase=dto.DailyForecastNightsIconPhrase;
+            vm2.DailyForecastTemperaturesMaximumsUnitType = dto.DailyForecastTemperaturesMaximumsUnitType;
+            vm2.DailyForecastTemperaturesMaximumsValue = dto.DailyForecastTemperaturesMaximumsValue;
+            vm2.DailyForecastTemperaturesMinimumsUnit = dto.DailyForecastTemperaturesMinimumsUnit;
+            vm2.DailyForecastTemperaturesMinimumsUnitType = dto.DailyForecastTemperaturesMinimumsUnitType;
+            vm2.DailyForecastTemperaturesMaximumsUnit = dto.DailyForecastTemperaturesMaximumsUnit;
 
             
             return View(vm2);

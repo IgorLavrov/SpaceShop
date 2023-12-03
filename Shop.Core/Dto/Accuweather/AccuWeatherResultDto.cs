@@ -10,15 +10,13 @@ namespace Shop.Core.Dto.Accuweather
     public class AccuWeatherResultDto
     {
 
-       
-
         public string City { get; set; }
 
         public DateTime HeadlinesEffectiveDate { get; set; }
 
-        public string HeadlinesEffectiveEpochDate { get; set; }
+        public int HeadlinesEffectiveEpochDate { get; set; }
 
-        public string HeadlinesSeverity { get; set; }
+        public int HeadlinesSeverity { get; set; }
 
         public string HeadlinesText { get; set; }
 
@@ -51,7 +49,7 @@ namespace Shop.Core.Dto.Accuweather
         public string DailyForecastDaysIconPhrase { get; set; }
 
 
-        public string DailyForecastDaysHasPrecipitation { get; set; }
+        public bool DailyForecastDaysHasPrecipitation { get; set; }
 
 
         public string DailyForecastDaysPrecipitationType { get; set; }
@@ -70,6 +68,7 @@ namespace Shop.Core.Dto.Accuweather
         public string DailyForecastMobileLink { get; set; }
 
         public string DailyForecastLink { get; set; }
+    
     }
 
 

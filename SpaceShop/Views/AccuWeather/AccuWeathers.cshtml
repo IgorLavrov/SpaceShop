@@ -6,37 +6,88 @@
     <h2>@Html.DisplayFor(model=>model.City)</h2>
     <hr />
     <dl class="row">
+        
+
+        <div class="form-group row">
+            <label asp-for="DailyForecastSources" class="col-sm-2 col-form-label">
+                Sources
+            </label>
+            @Html.DisplayFor(model=>model.DailyForecastSources)
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="DailyForecastDate" class="col-sm-2 col-form-label"> Forecast date </label>
+            @Html.DisplayFor(model=>model.DailyForecastDate)
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="HeadlinesEndDate" class="col-sm-2 col-form-label">
+                Forecast End Date
+            </label>
+            @Html.DisplayFor(model=>model.HeadlinesEndDate)
+        </div>
+
+     
+        <div class="form-group row">
+            <label asp-for="DailyForecastDaysIconPhrase" class="col-sm-2 col-form-label">
+               Day forecast
+            </label>
+            @Html.DisplayFor(model=>model.DailyForecastDaysIconPhrase)
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="DailyForecastNightsIconPhrase" class="col-sm-2 col-form-label">
+                Night Forecast
+            </label>
+            @Html.DisplayFor(model=>model.DailyForecastNightsIconPhrase)
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="DailyForecastTemperaturesMaximumsValue" class="col-sm-2 col-form-label">
+                Today  Temperature ( Max.-Fahrenheit)
+            </label>
+            @Html.DisplayFor(model=>model.DailyForecastTemperaturesMaximumsValue)
+            @Html.DisplayFor(model=>model.DailyForecastTemperaturesMaximumsUnit)
+
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="DailyForecastTemperaturesMinimumsValue" class="col-sm-2 col-form-label">
+                Today Temperature (Min-Fahrenheit)
+            </label>
+            @Html.DisplayFor(model=>model.DailyForecastTemperaturesMinimumsValue)
+            @Html.DisplayFor(model=>model.DailyForecastTemperaturesMinimumsUnit)
+        </div>
+
+      
+        <div class="form-group row">
+            <label asp-for="HeadlinesText" class="col-sm-2 col-form-label">
+                Text
+            </label>
+            @Html.DisplayFor(model=>model.HeadlinesText)
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="HeadlinesCategory" class="col-sm-2 col-form-label">
+                Warning
+            </label>
+            @Html.DisplayFor(model=>model.HeadlinesCategory)
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="HeadlinesSeverity" class="col-sm-2 col-form-label">
+                Severity
+            </label>
+            @Html.DisplayFor(model=>model.HeadlinesSeverity)
+        </div>
 
         <div class="form-group row">
             <label asp-for="HeadlinesLink" class="col-sm-2 col-form-label">
+                Link
             </label>
             @Html.DisplayFor(model=>model.HeadlinesLink)
         </div>
 
-        <div class="form-group row">
-            <label asp-for="DailyForecastDate" class="col-sm-2 col-form-label">
-            </label>
-            @Html.DisplayFor(model=>model.DailyForecastDate) 
-        </div>
-
-        <div class="form-group row">
-            <label asp-for="DailyForecastDaysHasPrecipitation" class="col-sm-2 col-form-label">
-            </label>
-            @Html.DisplayFor(model=>model.DailyForecastDaysHasPrecipitation)
-        </div>
-
-        <div class="form-group row">
-            <label asp-for="DailyForecastEpochDate" class="col-sm-2 col-form-label">
-            </label>
-            @Html.DisplayFor(model=>model.DailyForecastEpochDate) 
-        </div>
-        <div class="form-group row">
-            <label asp-for="HeadlinesText" class="col-sm-2 col-form-label">
-            </label>
-            @Html.DisplayFor(model=>model.HeadlinesText)
-        </div>
-       
-        
     </dl>
 
 </div>

@@ -40,7 +40,7 @@ namespace Shop.Core.Dto.Accuweather
             public string IconPhrase { get; set; }
 
             [JsonProperty("HasPrecipitation")]
-            public string HasPrecipitation { get; set; }
+            public bool HasPrecipitation { get; set; }
         }
 
         public class Day
@@ -52,7 +52,7 @@ namespace Shop.Core.Dto.Accuweather
             public string IconPhrase { get; set; }
 
             [JsonProperty("HasPrecipitation")]
-            public string HasPrecipitation { get; set; }
+            public bool HasPrecipitation { get; set; }
 
             [JsonProperty("PrecipitationType")]
             public string PrecipitationType { get; set; }
@@ -64,10 +64,10 @@ namespace Shop.Core.Dto.Accuweather
         public class Temperature
         {
             [JsonProperty("Minimum")]
-            public Minimum Minimums { get; set; }
+            public Minimum Minimum { get; set; }
 
             [JsonProperty("Maximum")]
-            public Maximum Maximums { get; set; }
+            public Maximum Maximum { get; set; }
         }
 
         public class Maximum
