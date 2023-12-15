@@ -21,7 +21,7 @@ namespace Shop.Data
         public DbSet<Kindergarten> Kindergartens { get; set; }
         public DbSet<FileToDatabase> FileToDatabases { get; set; }
 
-
+        public DbSet<SalesLeadEntity> SalesLead {  get; set; }
     }
 
 }

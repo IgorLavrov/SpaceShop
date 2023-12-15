@@ -15,7 +15,7 @@ namespace Shop.ApplicationServices.Services
     {
 
         string number ="";
-        string idAccuweather = "";
+        string idAccuweather = "op5OxISm9zVcXcfLj1Lv8vcw8IYduZaT";
 
         public async Task<AccuWeatherResultDto> AccuWeatherResult (AccuWeatherResultDto dto)
         {
@@ -32,7 +32,9 @@ namespace Shop.ApplicationServices.Services
             }
          
 
-            string url2 = $"http://dataservice.accuweather.com/forecasts/v1/daily/1day/{number}?apikey={idAccuweather}";
+            string url2 = $"http://dataservice.accuweather.com/forecasts/v1/daily/1day/{number}?apikey={idAccuweather}";//fareinheit
+          //  string url2 = $"http://dataservice.accuweather.com/forecasts/v1/daily/1day/{number}?apikey={idAccuweather}&metric=true";// temp celsium
+
 
             using (WebClient tclient = new WebClient())
             {

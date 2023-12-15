@@ -20,7 +20,7 @@ namespace Shop.Data.Migrations
                 .HasAnnotation("ProductVersion", "6.0.21")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("Shop.Core.Domain.FileToApi", b =>
                 {
@@ -37,7 +37,7 @@ namespace Shop.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FileToApis");
+                    b.ToTable("FileToApis", (string)null);
                 });
 
             modelBuilder.Entity("Shop.Core.Domain.FileToDatabase", b =>
@@ -59,7 +59,7 @@ namespace Shop.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FileToDatabases");
+                    b.ToTable("FileToDatabases", (string)null);
                 });
 
             modelBuilder.Entity("Shop.Core.Domain.Kindergarten", b =>
@@ -91,7 +91,7 @@ namespace Shop.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Kindergartens");
+                    b.ToTable("Kindergartens", (string)null);
                 });
 
             modelBuilder.Entity("Shop.Core.Domain.RealEstate", b =>
@@ -128,7 +128,7 @@ namespace Shop.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RealEstates");
+                    b.ToTable("RealEstates", (string)null);
                 });
 
             modelBuilder.Entity("Shop.Core.Domain.Spaceship", b =>
@@ -169,7 +169,7 @@ namespace Shop.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Spaceships");
+                    b.ToTable("Spaceships", (string)null);
                 });
 #pragma warning restore 612, 618
         }
