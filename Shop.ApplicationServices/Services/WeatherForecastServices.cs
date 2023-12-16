@@ -17,7 +17,7 @@ namespace Shop.ApplicationServices.Services
         public async Task <OpenWeatherResultDto> OpenWeatherResult(OpenWeatherResultDto dto)
         {
 
-            string idOpenweather = "143dc19c7fa0100fee0d6ec334bf25d9"; 
+            string idOpenweather = ""; 
             string url = $"https://api.openweathermap.org/data/2.5/weather?q={dto.City}&units=metric&appid={idOpenweather}";
 
 

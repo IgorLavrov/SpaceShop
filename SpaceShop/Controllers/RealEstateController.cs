@@ -8,9 +8,11 @@ using SpaceShop.Models.RealEstate;
 
 using System.Net.NetworkInformation;
 using static System.Net.Mime.MediaTypeNames;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SpaceShop.Controllers
 {
+    [Authorize]
     public class RealEstateController : Controller
     {
 

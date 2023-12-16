@@ -33,7 +33,7 @@ namespace Shop.ApplicationServices.Services
 
             using var smtp = new SmtpClient();
             //smtp.SslProtocols = SslProtocols.Ssl3 | SslProtocols.Tls | SslProtocols.Tls11 | SslProtocols.Tls12 | SslProtocols.Tls13;
-            //smtp.CheckCertificateRevocation = false;//rabotaet
+            smtp.CheckCertificateRevocation = false;//rabotaet
             //smtp.ServerCertificateValidationCallback = (s, c, h, e) => true;
             smtp.Connect(_config.GetSection("EmailHost").Value, 587, SecureSocketOptions.StartTls);
             smtp.Authenticate(_config.GetSection("EmailUsername").Value, _config.GetSection("EmailPassword").Value);

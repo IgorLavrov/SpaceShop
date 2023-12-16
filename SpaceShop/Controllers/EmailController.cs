@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Shop.Core.Dto.Email;
 using Shop.Core.ServiceInterface;
 using SpaceShop.Models.Email;
 
 namespace SpaceShop.Controllers
 {
+    [Authorize]
     public class EmailController : Controller
     {
             private readonly IEmailService _emailService;

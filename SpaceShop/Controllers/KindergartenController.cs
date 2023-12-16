@@ -5,10 +5,12 @@ using Shop.Core.ServiceInterface;
 using Shop.Core.Dto;
 using Shop.Data;
 using SpaceShop.Models.Kindergarten;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace SpaceShop.Controllers
 {
+    [Authorize]
     public class KindergartenController : Controller
     {
        
