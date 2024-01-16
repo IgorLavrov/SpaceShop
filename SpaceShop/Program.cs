@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Shop.ApplicationServices.Services;
+using Shop.Core.Domain;
 using Shop.Core.ServiceInterface;
 using Shop.Data;
 using SignalRChat.Hubs;
+using SpaceShop.Security;
 
 
 
@@ -14,9 +16,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<ShopContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddDefaultIdentity<IdentityUser>()//only confirm email allowed (options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ShopContext>();
+builder.Services.AddDbContext<ShopContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//builder.Services.AddDbContext<ShopContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+////builder.Services.AddDefaultIdentity<IdentityUser>()//only confirm email allowed (options => options.SignIn.RequireConfirmedAccount = true)
+////    .AddEntityFrameworkStores<ShopContext>();
 
 builder.Services.AddScoped<ISpaceshipServices, SpaceshipServices>();
 
@@ -31,6 +35,24 @@ builder.Services.AddScoped<IChuckNorrisServices, ChuckNorrisServices>();
 builder.Services.AddScoped<ICocktailServices, CocktailServices>();
 builder.Services.AddScoped<IAccuWeatherServices,AccuWeatherServices>();
 builder.Services.AddScoped<IEmailService,EmailServices>();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+    options.Password.RequiredLength = 3;
+    options.Tokens.EmailConfirmationTokenProvider = "CustomEmailConfirmation";
+    options.Lockout.MaxFailedAccessAttempts = 2;
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+})
+    .AddEntityFrameworkStores<ShopContext>()
+    .AddDefaultTokenProviders()
+    .AddTokenProvider<DataProtectorTokenProvider<ApplicationUser>>("CustomEmailConfirmation")
+    .AddDefaultUI();
+//all tokens
+builder.Services.Configure<DataProtectionTokenProviderOptions>(o =>
+o.TokenLifespan = TimeSpan.FromHours(5));
+//email tokens confirmation
+builder.Services.Configure<CustomEmailconfirmationTokenProviderOptions>(o =>
+o.TokenLifespan = TimeSpan.FromDays(3));
 
 var app = builder.Build();
 

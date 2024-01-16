@@ -6,7 +6,7 @@ using Shop.Core.Domain;
 
 namespace Shop.Data
 {
-    public class ShopContext :IdentityDbContext
+    public class ShopContext :IdentityDbContext<ApplicationUser>
     {
       
         public ShopContext(
