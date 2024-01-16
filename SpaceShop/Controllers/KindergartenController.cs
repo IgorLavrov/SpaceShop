@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace SpaceShop.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class KindergartenController : Controller
     {
        
@@ -204,10 +204,6 @@ namespace SpaceShop.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-
-
-
-        
 
     }
 }

@@ -15,7 +15,7 @@ namespace Shop.ApplicationServices.Services
     {
 
         string number ="";
-        string idAccuweather = "";
+        string idAccuweather = "op5OxISm9zVcXcfLj1Lv8vcw8IYduZaT";
 
         public async Task<AccuWeatherResultDto> AccuWeatherResult (AccuWeatherResultDto dto)
         {

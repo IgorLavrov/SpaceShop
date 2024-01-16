@@ -6,7 +6,7 @@ using SpaceShop.Models.Email;
 
 namespace SpaceShop.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class EmailController : Controller
     {
             private readonly IEmailService _emailService;
