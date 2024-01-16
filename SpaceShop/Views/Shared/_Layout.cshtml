@@ -64,11 +64,11 @@
                             <li class="nav-item dropdown">
                                 <div class="dropdown">
                                     <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Manage Button
+                                        Manage Account
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li>Reset password</li>
-                                    <li> Change password</li>
+                                    <li><a class="dropdown-item" asp-controller="Accounts" asp-action="ResetPassword">Reset password</a></li>
+                                        <li><a class="dropdown-item" asp-controller="Accounts" asp-action="ChangePassword"> Change password</a></li>
                                     </ul>
                                 </div>
                             </li>

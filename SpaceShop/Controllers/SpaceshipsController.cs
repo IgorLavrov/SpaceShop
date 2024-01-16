@@ -9,7 +9,7 @@ using SpaceShop.Models.Spaceship;
 
 namespace SpaceShop.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class SpaceshipsController : Controller
     {
         private readonly ShopContext _context;

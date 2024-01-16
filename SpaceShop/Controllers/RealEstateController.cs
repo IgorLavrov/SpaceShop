@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace SpaceShop.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class RealEstateController : Controller
     {
 

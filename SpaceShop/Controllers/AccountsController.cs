@@ -114,12 +114,22 @@ namespace SpaceShop.Controllers
 
         }
 
+
         [HttpGet]
         [AllowAnonymous]
         public IActionResult ForgotPassword()
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+
+        }
+
 
         [HttpPost]
         [AllowAnonymous]

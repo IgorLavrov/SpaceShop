@@ -35,6 +35,11 @@ builder.Services.AddScoped<IChuckNorrisServices, ChuckNorrisServices>();
 builder.Services.AddScoped<ICocktailServices, CocktailServices>();
 builder.Services.AddScoped<IAccuWeatherServices,AccuWeatherServices>();
 builder.Services.AddScoped<IEmailService,EmailServices>();
+
+//add new lines
+builder.Services.AddRazorPages();
+//builder.Services.AddDbContext<ShopContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.SignIn.RequireConfirmedAccount = true;
